@@ -2,6 +2,7 @@ import { CreatePost } from "../components/posts/create-post";
 import { PostCard } from "../components/posts/post-card";
 import { usePosts } from "../hooks/posts/use-posts";
 import type { Post } from "../types/create-post-payload";
+import { LoadingSpinner } from "../components/modals/loading";
 
 export function Posts() {
   const { data: posts, isLoading } = usePosts();
@@ -17,7 +18,7 @@ export function Posts() {
       <main className="max-w-[800px] mx-auto mt-6 flex flex-col gap-6">
         <CreatePost />
 
-        {isLoading && <p>Loading...</p>}
+        {isLoading && <LoadingSpinner />}
 
         {posts
           ?.sort(
