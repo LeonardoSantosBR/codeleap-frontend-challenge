@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { createCareer } from "../api/careers/careers";
+import { createCareer } from "../../api/careers/careers";
 
 export function useSignup() {
   return useMutation({

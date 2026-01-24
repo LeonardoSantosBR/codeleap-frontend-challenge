@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSignup } from "../hooks/use-signup";
+import { useSignup } from "../hooks/signup/use-signup";
 
 export function Signup() {
   const [username, setUsername] = useState("");

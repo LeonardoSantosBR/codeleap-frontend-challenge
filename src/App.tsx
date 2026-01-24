@@ -1,18 +1,12 @@
+import { Posts } from "./pages/posts";
 import { Signup } from "./pages/signup";
 
 function App() {
-  const username = localStorage.getItem("username");
-
-  if (!username) {
+  const isAuthenticated  = localStorage.getItem("username");
+  if (!isAuthenticated ) {
     return <Signup />;
   }
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      <h1 className="text-xl font-semibold">
-        Próxima tela (posts) 👀
-      </h1>
-    </div>
-  )
+  return <Posts />;
 }
 
-export default App
+export default App;
