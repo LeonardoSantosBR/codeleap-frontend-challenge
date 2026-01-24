@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { useCreatePost } from "../../hooks/posts/use-create-posts";
 
+/**
+ * 
+ * @description responsavel por renderizar componente de criação da publicação
+ */
 export function CreatePost() {
   const username = localStorage.getItem("username")!;
   const [title, setTitle] = useState("");

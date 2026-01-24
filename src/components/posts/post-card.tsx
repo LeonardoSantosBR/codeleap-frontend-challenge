@@ -5,6 +5,12 @@ import { useState } from "react";
 import { DeletePostModal } from "../modals/posts/delete-posts-modal";
 import { EditPostModal } from "../modals/posts/edit-posts-modal";
 
+/**
+ * 
+ * @description responsavel por renderizar cada componente de uma publicação
+ * @params recebe a publicação, sendo tipada por Post
+ * @modals renderiza 2 modais de editar/excluir
+ */
 export function PostCard({ post }: { post: Post }) {
   const username = localStorage.getItem("username")!;
   const isOwner = username === post.username;
