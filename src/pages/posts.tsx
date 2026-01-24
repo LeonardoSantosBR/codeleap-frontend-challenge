@@ -1,5 +1,5 @@
 import { CreatePost } from "../components/posts/create-post";
-import { PostCard } from "../components/posts/postcard";
+import { PostCard } from "../components/posts/post-card";
 import { usePosts } from "../hooks/posts/use-posts";
 import type { Post } from "../types/create-post-payload";
 
