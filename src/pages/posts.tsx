@@ -1,13 +1,13 @@
 import { CreatePost } from "../components/posts/create-post";
 import { PostCard } from "../components/posts/post-card";
-import { usePosts } from "../hooks/posts/use-posts";
+import { useGetPosts } from "../hooks/posts/use-get-posts";
 import type { Post } from "../types/create-post-payload";
 import { LoadingSpinner } from "../components/modals/loading/loading-modal";
 import { useNavigate } from "react-router-dom";
 import { LogOut } from "lucide-react";
 
 export function Posts() {
-  const { data: posts, isLoading } = usePosts();
+  const { data: posts, isLoading } = useGetPosts();
   const navigate = useNavigate();
 
   const handleLogout = () => {
