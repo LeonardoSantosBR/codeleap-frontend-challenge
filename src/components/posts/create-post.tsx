@@ -2,10 +2,12 @@ import { useState } from "react";
 import { useCreatePost } from "../../hooks/posts/use-create-posts";
 
 export function CreatePost() {
+  const username = localStorage.getItem("username")!;
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const username = localStorage.getItem("username")!;
   const { mutate, isPending } = useCreatePost();
+
+  const disabled = !title || !content;
 
   function handleCreate() {
     mutate({
@@ -17,8 +19,6 @@ export function CreatePost() {
     setTitle("");
     setContent("");
   }
-
-  const disabled = !title || !content;
 
   return (
     <div className="bg-white border border-[#cccccc] rounded-[16px] p-8">
