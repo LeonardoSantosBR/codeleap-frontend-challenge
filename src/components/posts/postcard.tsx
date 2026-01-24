@@ -1,4 +1,6 @@
 import type { Post } from "../../types/create-post-payload";
+import editIcon from "../../assets/icons/bx_bx-edit.png";
+import deleteIcon from "../../assets/icons/ic_baseline-delete-forever.png";
 
 export function PostCard({ post }: { post: Post }) {
   const username = localStorage.getItem("username");
@@ -11,16 +13,18 @@ export function PostCard({ post }: { post: Post }) {
 
         {isOwner && (
           <div className="flex gap-3">
-            <button>✏️</button>
-            <button>🗑️</button>
+            <button>
+              <img src={deleteIcon} alt="Delete post" className="w-6 h-6" />
+            </button>
+            <button>
+              <img src={editIcon} alt="Edit post" className="w-6 h-6" />
+            </button>
           </div>
         )}
       </div>
 
       <div className="p-4">
-        <p className="text-sm text-gray-600 mb-2">
-          @{post.username}
-        </p>
+        <p className="text-sm text-gray-600 mb-2">@{post.username}</p>
         <p className="text-sm">{post.content}</p>
       </div>
     </div>

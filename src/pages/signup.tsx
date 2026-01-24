@@ -34,11 +34,11 @@ export function Signup() {
         "
       >
         <div>
-          <h1 className="text-[16px] font-semibold text-black">
+          <h1 className="text-[20px] font-black text-black pb-3">
             Welcome to CodeLeap network!
           </h1>
 
-          <label className="block mt-3 text-[14px] text-black">
+          <label className="block mt-3 text-[16px] text-black">
             Please enter your username
           </label>
 
