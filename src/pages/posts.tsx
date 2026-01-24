@@ -4,17 +4,23 @@ import { useGetPosts } from "../hooks/posts/use-get-posts";
 import type { Post } from "../types/create-post-payload";
 import { LoadingSpinner } from "../components/modals/loading/loading-modal";
 import { HeaderPost } from "../components/posts/header-post";
+import { useState } from "react";
+const pageSize= 10;
 
 /**
  *
  * @description componente principal que renderiza 3 componentes: HeaderPost/CreatePost/PostCard
  */
 export function Posts() {
-  const { data: posts, isLoading } = useGetPosts();
+  const [page, setPage] = useState(1);
+  const { data: posts, isLoading } = useGetPosts(page);
+
+  const postsList = posts?.results ?? [];
+  const totalPages = posts?.count ? Math.ceil(posts.count / pageSize) : 1;
 
   return (
     <div className="min-h-screen bg-[#DDDDDD]">
-      <HeaderPost/>
+      <HeaderPost />
 
       <main className="max-w-[800px] mx-auto mt-6 flex flex-col gap-6 pb-10">
         <CreatePost />
@@ -28,6 +34,14 @@ export function Posts() {
             <PostCard key={post.id} post={post} />
           ))}
         {isLoading && <LoadingSpinner />}
+
+        <Pagination
+          page={page}
+          totalPages={totalPages}
+          hasNext={Boolean(data?.next)}
+          hasPrev={Boolean(data?.previous)}
+          onChange={setPage}
+        />
       </main>
     </div>
   );

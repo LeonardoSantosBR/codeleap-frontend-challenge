@@ -1,7 +1,7 @@
 import { api } from "../api";
 
-export function getPosts() {
-  return api.get("/careers/");
+export function getPosts(page: number) {
+  return api.get(`/careers/${page}`);
 }
 
 export function createPost(data: {
