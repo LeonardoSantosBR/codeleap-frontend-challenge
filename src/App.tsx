@@ -1,12 +1,7 @@
-import { Posts } from "./pages/posts";
-import { Signup } from "./pages/signup";
+import RoutesOfAplication from "./routes/routes";
 
 function App() {
-  const isAuthenticated  = localStorage.getItem("username");
-  if (!isAuthenticated ) {
-    return <Signup />;
-  }
-  return <Posts />;
+  return <RoutesOfAplication />;
 }
 
 export default App;

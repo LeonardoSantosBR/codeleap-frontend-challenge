@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { useSignup } from "../hooks/signup/use-signup";
+import { useNavigate } from "react-router-dom";
+
 
 export function Signup() {
   const [username, setUsername] = useState("");
   const { mutate, isPending } = useSignup();
+  const navigate = useNavigate();
+
 
   function handleSubmit() {
     if (!username) return;
@@ -11,7 +15,7 @@ export function Signup() {
 
     mutate(username, {
       onSuccess: () => {
-        console.log("Signup success.");
+        navigate("/posts");
       },
     });
   }
