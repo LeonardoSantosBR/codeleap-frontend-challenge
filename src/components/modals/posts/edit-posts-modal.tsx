@@ -40,14 +40,12 @@ export function EditPostModal({ open, post, onClose }: EditPostModalProps) {
 
   return (
     <div className="fixed inset-0 z-50">
-      {/* overlay */}
       <button
         aria-label="Close edit modal"
         onClick={onClose}
         className="absolute inset-0 bg-black/40 cursor-default"
       />
 
-      {/* modal */}
       <div className="absolute inset-0 flex items-center justify-center px-4">
         <div className="w-[660px] max-w-full bg-white border border-[#CCCCCC] rounded-[16px] p-6">
           <h2 className="text-[18px] font-semibold text-black">Edit item</h2>
