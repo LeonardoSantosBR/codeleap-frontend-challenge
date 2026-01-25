@@ -1,4 +1,4 @@
-import type { Post } from "../../types/create-post-payload";
+import type { PostProps } from "../../types/create-post-payload";
 import editIcon from "../../assets/icons/bx_bx-edit.png";
 import deleteIcon from "../../assets/icons/ic_baseline-delete-forever.png";
 import { useState } from "react";
@@ -11,7 +11,7 @@ import { EditPostModal } from "../modals/posts/edit-posts-modal";
  * @params recebe a publicação, sendo tipada por Post
  * @modals renderiza 2 modais de editar/excluir
  */
-export function PostCard({ post }: { post: Post }) {
+export function PostCard({ post }: { post: PostProps }) {
   const username = localStorage.getItem("username")!;
   const isOwner = username === post.username;
   const [openDelete, setOpenDelete] = useState(false);

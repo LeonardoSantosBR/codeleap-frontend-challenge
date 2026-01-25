@@ -1,7 +1,7 @@
 import { CreatePost } from "../components/posts/create-post";
 import { PostCard } from "../components/posts/post-card";
 import { useGetPosts } from "../hooks/posts/use-get-posts";
-import type { Post } from "../types/create-post-payload";
+import type { PostProps } from "../types/create-post-payload";
 import { LoadingSpinner } from "../components/modals/loading/loading-modal";
 import { HeaderPost } from "../components/posts/header-post";
 import { useState } from "react";
@@ -28,11 +28,11 @@ export function Posts() {
         <CreatePost />
         {posts
           ?.sort(
-            (a: Post, b: Post) =>
+            (a: PostProps, b: PostProps) =>
               new Date(b.created_datetime).getTime() -
               new Date(a.created_datetime).getTime()
           )
-          .map((post: Post) => (
+          .map((post: PostProps) => (
             <PostCard key={post.id} post={post} />
           ))}
         {isLoading && <LoadingSpinner />}
