@@ -1,4 +1,4 @@
-export type Post = {
+export type PostProps = {
   id: number;
   username: string;
   title: string;

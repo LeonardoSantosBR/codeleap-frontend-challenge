@@ -1,7 +1,7 @@
 import { api } from "../api";
 
-export function getPosts() {
-  return api.get("/careers/");
+export function getPosts(offset: number, pageSize: number) {
+  return api.get(`/careers/`, { params: { offset, limit: pageSize } });
 }
 
 export function createPost(data: {
@@ -13,10 +13,13 @@ export function createPost(data: {
   return api.post("/careers/", data);
 }
 
-export function updatePost(id: number, data: {
-  title: string;
-  content: string;
-}) {
+export function updatePost(
+  id: number,
+  data: {
+    title: string;
+    content: string;
+  }
+) {
   return api.patch(`/careers/${id}/`, data);
 }
 
