@@ -21,12 +21,6 @@ export function CreatePost() {
         content,
         author_ip: "",
       },
-      {
-        onSuccess: () => {
-          setTitle("");
-          setContent("");
-        },
-      }
     );
     setTitle("");
     setContent("");
