@@ -18,7 +18,6 @@ export function Posts() {
   const offset = (page - 1) * pageSize;
   const { data: posts, isLoading } = useGetPosts(offset, pageSize);
 
-  console.log("AQUIII", posts);
   const postsList = posts?.results ?? [];
   const totalPages = posts?.count ? Math.ceil(posts.count / pageSize) : 1;
 
