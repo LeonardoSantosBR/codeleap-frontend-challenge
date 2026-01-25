@@ -49,7 +49,6 @@ export function Pagination({
 }
 
 function getPages(current: number, total: number): Array<number | "..."> {
-  // Ex: 1 2 3 ... 10  (ou) 1 ... 4 5 6 ... 10
   const delta = 1;
   const range: number[] = [];
   const rangeWithDots: Array<number | "..."> = [];
