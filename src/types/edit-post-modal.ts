@@ -1,7 +1,7 @@
-import type { Post } from "./create-post-payload";
+import type { PostProps } from "./create-post-payload";
 
 export type EditPostModalProps = {
   open: boolean;
-  post: Post | null;
+  post: PostProps | null;
   onClose: () => void;
 };
