@@ -5,11 +5,13 @@ import type { Post } from "../types/create-post-payload";
 import { LoadingSpinner } from "../components/modals/loading/loading-modal";
 import { HeaderPost } from "../components/posts/header-post";
 import { useState } from "react";
-const pageSize= 10;
+import { Pagination } from "../components/pagination/pagination";
+const pageSize = 5;
 
 /**
  *
  * @description componente principal que renderiza 3 componentes: HeaderPost/CreatePost/PostCard
+ * @pagination componente tambem utiliza paginacao
  */
 export function Posts() {
   const [page, setPage] = useState(1);
@@ -38,8 +40,8 @@ export function Posts() {
         <Pagination
           page={page}
           totalPages={totalPages}
-          hasNext={Boolean(data?.next)}
-          hasPrev={Boolean(data?.previous)}
+          hasNext={Boolean(postsList?.next)}
+          hasPrev={Boolean(postsList?.previous)}
           onChange={setPage}
         />
       </main>
