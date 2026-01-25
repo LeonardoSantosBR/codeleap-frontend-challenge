@@ -5,20 +5,8 @@ import type { EditPostModalProps } from "../../../types/edit-post-modal";
 
 export function EditPostModal({ open, post, onClose }: EditPostModalProps) {
   const { mutate, isPending } = useUpdatePost();
-
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-
-  useEffect(() => {
-    if (!open) return;
-
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open, onClose]);
 
   useEffect(() => {
     if (!open || !post) return;
@@ -27,7 +15,6 @@ export function EditPostModal({ open, post, onClose }: EditPostModalProps) {
   }, [open, post]);
 
   if (!open) return null;
-
   const disabled = !title.trim() || !content.trim() || isPending;
 
   function handleSave() {
