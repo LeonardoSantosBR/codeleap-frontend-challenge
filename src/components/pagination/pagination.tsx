@@ -11,7 +11,7 @@ export function Pagination({
   const pages = getPages(page, totalPages);
 
   return (
-    <div className="flex items-center justify-center gap-2 mt-2">
+    <div className="flex items-center justify-center gap-2">
       <button
         disabled={!hasPrev}
         onClick={() => onChange(page - 1)}
