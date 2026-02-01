@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSignup } from "../hooks/signup/use-signup";
 import { useNavigate } from "react-router-dom";
-
 
 export function Signup() {
   const [username, setUsername] = useState("");
   const { mutate, isPending } = useSignup();
   const navigate = useNavigate();
+  const locUsername = localStorage.getItem("username")
 
+  useEffect(() => {
+    if (locUsername) navigate("/posts");
+  }, [locUsername, navigate]);
 
   function handleSubmit() {
     if (!username) return;
