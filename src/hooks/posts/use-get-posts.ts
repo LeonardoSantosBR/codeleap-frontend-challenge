@@ -3,7 +3,7 @@ import { getPosts } from "../../api/posts/posts";
 
 export function useGetPosts(offset: number, pageSize: number) {
   return useQuery({
-    queryKey: ["posts", offset],
+    queryKey: ["posts"],
     queryFn: () => getPosts(offset, pageSize),
     select: (res) => res.data,
     retry: 0,

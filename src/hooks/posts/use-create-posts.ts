@@ -7,7 +7,7 @@ export function useCreatePost() {
   return useMutation({
     mutationFn: createPost,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["posts"] , exact: false});
+      queryClient.invalidateQueries({ queryKey: ["posts"]});
     },
   });
 }
