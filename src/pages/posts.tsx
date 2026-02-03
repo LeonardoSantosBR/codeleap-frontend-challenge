@@ -20,7 +20,6 @@ export function Posts() {
   const offset = (page - 1) * pageSize;
   const { data: posts, isLoading } = useGetPosts(offset, pageSize);
 
-  const postsList = posts?.results ?? [];
   const totalPages = posts?.count ? Math.ceil(posts.count / pageSize) : 1;
 
   useEffect(() => {
@@ -48,8 +47,8 @@ export function Posts() {
           <Pagination
             page={page}
             totalPages={totalPages}
-            hasNext={Boolean(postsList?.next)}
-            hasPrev={Boolean(postsList?.previous)}
+            hasNext={Boolean(posts?.next)}
+            hasPrev={Boolean(posts?.previous)}
             onChange={setPage}
           />
           <select
